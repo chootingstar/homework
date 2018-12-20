@@ -1,13 +1,15 @@
 
 public class Sales {
 	
-	int salesFolk [] [];
+	int[][] salesFolk;
+	salesFolk = new int[5][5];
 	
 	public static void main(String[] args) {
-		
+		Sales sold;
+		sold = new Sales();
 		
 		//I plan to say a lot of data
-		System.out.println();
+		System.out.println(sold.setArray());
 		System.out.println();
 		System.out.println();
 	}
@@ -20,7 +22,7 @@ public class Sales {
 			for (int j=0; j<5; j++) {
 				rd = rn.randGen();
 				//I need the generator to be inside of this loop so that it generates new numbers
-				salesFolk [i][j] = {rd, rd};
+				salesFolk [i][j] = rd;
 				/*I figured that the reason I couldn't call the random number generator was because I kept
 				 * trying to initially set the number, a start you can't do twice. But now the only thing I
 				 * think is the problem is that I can't initialize the number setting in an array. Apparently
