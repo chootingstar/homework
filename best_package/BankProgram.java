@@ -14,7 +14,7 @@ public class BankProgram {
 		//cannot do this (you cannot be your own parent)
 		
 		c.limit = 6000.00;
-		c.accntNumber = "50050050";
+		bc.accntNumber = "50050050";
 		c.balance = 200.00;
 		
 		s.transfers = 5;
@@ -25,7 +25,7 @@ public class BankProgram {
 		cd.balance = 14000.50;
 		
 		System.out.println(c.limit);
-		System.out.println(c.accntNumber);
+		System.out.println(bc.accntNumber);
 		System.out.println(s.balance);
 		System.out.println(cd.balance);
 		System.out.println(s.transfers);
