@@ -51,7 +51,8 @@ public class LinkedListOfEmployees {
 		if (node.getNext() != null)
 		while(node.getNext() != null) {
 			node = node.getNext();
-			if(node.getData(g) == g) count++;
+			String b = (String) node.getData();
+			if(b == g) count++;
 		} else {
 			System.out.println("There are no employees");
 		}
@@ -62,13 +63,15 @@ public class LinkedListOfEmployees {
 		//TODO
 		//this method returns the name of the oldest employee
 		Node node = head;
-		Employee oldie; //interesting, it accepts Employee as a data type...
+		Employee oldie = null; //interesting, it accepts Employee as a data type...
 		//... I wonder if that means I can access Employee directly, or I'm somehow
 		//accessing the registered data type accepted by Node.java
 		if (node.getNext() != null)
 		while(node.getNext() != null) {
 			node = node.getNext();
-		    
+		    if(node.getData() != null) {
+		    	oldie = node.getData();
+		    }
 		} else {
 			System.out.println("There are no employees");
 		}
