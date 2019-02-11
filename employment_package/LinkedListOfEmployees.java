@@ -3,6 +3,10 @@ package employment_package;
 public class LinkedListOfEmployees {
 	private Node head;
 	
+	public static void main(String [] args) {
+		
+	}
+	
 	public LinkedListOfEmployees() {
 		head = null;
 	}
@@ -24,6 +28,8 @@ public class LinkedListOfEmployees {
 		//---------------------
 	}
 	
+	//I don't like being restricted to one parameter. I can't enter everything I want. Though I'm told it's possible despite what I know, so I believe...
+	//... This is probably a moment of gullibility and stubborn foolishness.
 	public void insertAtEnd(Employee e) {
 		//TODO
 		//this method inserts at the end of the linked list.
@@ -48,11 +54,14 @@ public class LinkedListOfEmployees {
 		//this method returned the number of employees who are of the gender g.
 		Node node = head;
 		int count = 0;
-		if (node.getNext() != null)
-		while(node.getNext() != null) {
-			node = node.getNext();
-			String b = (String) node.getData();
-			if(b == g) count++;
+		if (node.getNext() != null) {
+			while(node.getNext() != null) {
+
+				node = node.getNext();
+				String b = (String) node.getData().getGender();
+				System.out.println("The gender is: " + b);
+				if(b == g) count++;
+			}
 		} else {
 			System.out.println("There are no employees");
 		}
@@ -66,12 +75,26 @@ public class LinkedListOfEmployees {
 		Employee oldie = null; //interesting, it accepts Employee as a data type...
 		//... I wonder if that means I can access Employee directly, or I'm somehow
 		//accessing the registered data type accepted by Node.java
-		if (node.getNext() != null)
-		while(node.getNext() != null) {
-			node = node.getNext();
-		    if(node.getData() != null) {
-		    	oldie = node.getData();
-		    }
+		if (node.getNext() != null) {
+			Node saved = null;
+			while(node.getNext() != null) {
+				node = node.getNext();
+				if(node.getData() != null) {
+					int theOldest = 0;
+					int isOld;
+					
+					isOld = node.getData().getAge();
+					
+					if(theOldest < isOld) {
+						theOldest = isOld;
+						saved = node;
+					}
+					
+					
+					oldie = saved.getData();
+				}
+			}
+
 		} else {
 			System.out.println("There are no employees");
 		}
@@ -81,7 +104,7 @@ public class LinkedListOfEmployees {
 	public LinkedListOfEmployees getEmployees(String g) {
 		//TODO
 		//this method returns a linked list of all employees who are of gender g.
-		return head.getData();
+		return head.getData().displayInfo();
 	}
 	
 	public void split(LinkedListOfEmployees male, LinkedListOfEmployees female) {

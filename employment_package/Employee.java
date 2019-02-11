@@ -45,10 +45,11 @@ public class Employee {
 		this.age = age;
 	}
 
-	public void displayInfo(){
+	public LinkedListOfEmployees displayInfo(){
 		System.out.println("Employee Id: " + emID);
 		System.out.println("Employee Name: " + name);
 		System.out.println("Employee Gender: " + gender);
 		System.out.println("Employee is to live to be the age " + (age + 3) + " before being fired \n and replaced with new blood");
+		return null;
 	}
 }
